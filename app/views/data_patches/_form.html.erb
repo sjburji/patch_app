@@ -1,0 +1,44 @@
+<%= form_for(@data_patch) do |f| %>
+  <% if @data_patch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@data_patch.errors.count, "error") %> prohibited this data_patch from being saved:</h2>
+
+      <ul>
+      <% @data_patch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <span class="span-1"><%= f.label :db %></span>
+    <%= f.collection_select(:db, DbList.find(:all), :db_name, :db_name, {:include_blank => 'Select Database'} ) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :patch %><br />
+    <%= f.text_area :patch, :rows => 4, :cols => 60, :maxlength => 140 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :analysis %><br />
+    <%= f.text_area :analysis, :rows => 4, :cols => 60, :maxlength => 140 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :otrs_id %><br />
+    <%= f.text_field :otrs_id %>
+  </div>
+  <div class="field">
+    <span class="span-3"><%= f.label :status %></span>
+    <span class="span-3"><%= f.radio_button "status", "Open",
+      {:checked => true} %>  Open</span>
+    
+  </div>
+  <br/><br/>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

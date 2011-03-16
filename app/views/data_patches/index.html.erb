@@ -1,0 +1,35 @@
+<%= javascript_tag :defer => 'defer' do -%>
+	$('#current_branch').html('<%= user_session['current_branch'].name %>');
+<% end -%>
+
+        <h3>Listing Patches</h3>
+
+<table>
+  <tr>
+    <th>Db</th>
+    <th>Patch</th>
+    <th>Analysis</th>
+    <th>Otrs</th>
+    <th>Status</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+
+<% @data_patches.each do |data_patch| %>
+  <tr>
+    <td><%= data_patch.db %></td>
+    <td><%= data_patch.patch %></td>
+    <td><%= data_patch.analysis %></td>
+    <td><%= data_patch.otrs_id %></td>
+    <td><%= data_patch.status %></td>
+    <td><%= link_to 'Show', data_patch %></td>
+    <td><%= link_to 'Edit', edit_data_patch_path(data_patch) %></td>
+    <td><%= link_to 'Destroy', data_patch, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Data patch', new_data_patch_path %>

@@ -1,0 +1,34 @@
+<%= javascript_tag :defer => 'defer' do -%>
+	$('#current_branch').html('<%= user_session['current_branch'].name %>');
+<% end -%>
+
+        <p id="notice"><%= notice %></p>
+
+<p>
+  <b>Db:</b>
+  <%= @data_patch.db %>
+</p>
+
+<p>
+  <b>Patch:</b>
+  <%= @data_patch.patch %>
+</p>
+
+<p>
+  <b>Analysis:</b>
+  <%= @data_patch.analysis %>
+</p>
+
+<p>
+  <b>Otrs:</b>
+  <%= @data_patch.otrs_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @data_patch.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_data_patch_path(@data_patch) %> |
+<%= link_to 'Back', data_patches_path %>

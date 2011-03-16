@@ -1,0 +1,9 @@
+<%= javascript_tag :defer => 'defer' do -%>
+	$('#current_branch').html('<%= user_session['current_branch'].name %>');
+<% end -%>
+
+        <h3>New Patch</h3>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', data_patches_path %>

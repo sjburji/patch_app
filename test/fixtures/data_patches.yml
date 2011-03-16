@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  db: MyString
+  patch: MyString
+  otrs_id: MyString
+  status: MyString
+
+two:
+  db: MyString
+  patch: MyString
+  otrs_id: MyString
+  status: MyString
